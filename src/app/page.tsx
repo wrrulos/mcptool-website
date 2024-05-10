@@ -71,7 +71,9 @@ export default function Home() {
                 Documentation
               </RedButton>
             </div>
-            <Text className="border rounded-xl p-2 border-red-500 my-6">$ pip install mcptool</Text>
+            <Text className="border rounded-xl p-2 border-red-500 my-6">
+              $ pip install mcptool
+            </Text>
           </div>
           <div className="hidden xl:block w-full">
             <Carousel
@@ -87,15 +89,19 @@ export default function Home() {
       </main>
       <section
         id="about"
-        className="h-screen bg-gradient-to-r from-black to-green-800 text-white text-center"
+        className="h-screen bg-gradient-to-r from-black to-green-800 text-white"
       >
-        <Title className="text-4xl sm:text-5xl text-center pt-16">
-          What is MCPTool?
-        </Title>
-        <Text className="mt-4">
-          A powerful open source tool, developed in Python, designed to test and
-          strengthen the security of Minecraft servers for free.
-        </Text>
+        <div className="max-w-80 items-center">
+          <Title className="text-4xl sm:text-5xl text-center pt-16">
+            What is MCPTool?
+          </Title>
+          <Text className="text-center mt-4">
+            A powerful open source tool developed in Python, designed to test
+            and harden the security of Minecraft servers for free. Although the
+            main tool is the one mentioned above, I also have future plans to
+            develop new programs and add-ons focused on Minecraft security.
+          </Text>
+        </div>
       </section>
     </>
   );
