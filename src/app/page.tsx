@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Carousel } from "@/app/components/UI/Carousel";
 import { Title, Subtitle, Text } from "@/app/components/UI/Text";
-import { RedButton } from "./components/UI/Button";
+import { Button, RedButton } from "./components/UI/Button";
 import { MCPTOOL_SERVER } from "@/app/constants/imageConstants";
 
 interface ImageData {
@@ -38,70 +38,50 @@ const imagesData: ImageData[] = [
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col justify-around h-screen overflow-hidden">
-        <article className="absolute inset-0 z-0">
-          <Image
-            src="/mc-background.jpg"
-            alt="Minecraft Background"
-            layout="fill"
-            objectFit="cover"
-          />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-        </article>
-        <div className="flex pt-28 animate-jump">
-          <div className="flex flex-col w-full xl:w-min items-center xl:items-start xl:pl-36 relative z-1">
-            <Title className="text-6xl sm:text-7xl xl:text-8xl">MCPTool</Title>
-            <Subtitle className="text-3xl sm:text-4xl xl:text-5xl">
-              Pentesting Tool
-            </Subtitle>
-            <Carousel
+      <main className="flex flex-col justify-center items-center text-center gap-6 min-h-screen">
+        <h2>MCPTool v1.0.0 has been released! Check it out!</h2>
+        <h1 className="w-4/5 text-5xl">The Best Pentesting Tool in Minecraft</h1>
+        <p className="w-4/5">The ideal program for developers interested in Minecraft-oriented cybersecurity</p>
+        <section className="flex flex-row items-center gap-6">
+          <RedButton url="/download">Download</RedButton>
+          <Button url="/docs">Documentation</Button>
+        </section>
+        <p>pip install mcptool</p>
+      </main>
+      <section id="about" className="flex flex-col min-h-screen gap-4">
+        <h1 className="text-5xl text-center mt-10">What is MCPTool?</h1>
+        <p className="text-center">MCPTool is a tool for developers interested in Minecraft-oriented cybersecurity</p>
+        <section id="features" className="flex flex-col items-center text-center gap-10 pt-10">
+          <h2 className="text-3xl text-center">Features</h2>
+          <ul className="grid grid-cols-2 gap-8">
+            <li className="flex flex-col gap-2">
+              <h3 className="text-2xl">Open Source</h3>
+              <p>Feature 1 description</p>
+            </li>
+            <li className="flex flex-col gap-2">
+              <h3 className="text-2xl">Commands</h3>
+              <p>Feature 2 description</p>
+            </li>
+            <li className="flex flex-col gap-2">
+              <h3 className="text-2xl">Multiple languages</h3>
+              <p>Feature 3 description</p>
+            </li>
+            <li className="flex flex-col gap-2">
+              <h3 className="text-2xl">Bots</h3>
+              <p>Feature 4 description</p>
+            </li>
+          </ul>
+          <RedButton url="/features" className="mt-6">More Features</RedButton>
+        </section>
+        <section id="gallery" className="flex flex-col items-center text-center min-h-screen">
+          <h2 className="text-3xl text-center">Gallery</h2>
+          <Carousel
               images={imagesData}
               className="xl:hidden w-3/4 max-w-[600px] mt-8"
               imagesClassNames="xl:hidden"
-            />
-            <Text className="text-xl sm:text-2xl text-center xl:text-start max-w-[300px] sm:max-w-lg mt-6 xl:mt-0">
-              Ultimate protection for security conscious Minecraft server
-              administrators.
-            </Text>
-            <div className="flex gap-2">
-              <RedButton url="/docs" className="sm:text-xl mt-10">
-                Get Started
-              </RedButton>
-              <RedButton url="/docs" className="sm:text-xl mt-10">
-                Documentation
-              </RedButton>
-            </div>
-            <Text className="border rounded-xl p-2 border-red-500 my-6">
-              $ pip install mcptool
-            </Text>
-          </div>
-          <div className="hidden xl:block w-full">
-            <Carousel
-              images={imagesData}
-              className="hidden xl:block max-w-[680px] mt-2 relative z-1"
-              imagesClassNames="hidden xl:block"
-            />
-          </div>
-        </div>
-        <Text className="mb-10 xl:mb-0 text-center text-white text-xl relative z-1 animate-jump">
-          Version 1.0
-        </Text>
-      </main>
-      <section
-        id="about"
-        className="h-screen bg-gradient-to-r from-black to-green-800 text-white"
-      >
-        <div className="max-w-80 items-center">
-          <Title className="text-4xl sm:text-5xl text-center pt-16">
-            What is MCPTool?
-          </Title>
-          <Text className="text-center mt-4">
-            A powerful open source tool developed in Python, designed to test
-            and harden the security of Minecraft servers for free. Although the
-            main tool is the one mentioned above, I also have future plans to
-            develop new programs and add-ons focused on Minecraft security.
-          </Text>
-        </div>
+          />
+          <RedButton url="/video" className="mt-6">Youtube Video</RedButton>
+        </section>
       </section>
     </>
   );
