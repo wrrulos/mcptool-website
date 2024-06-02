@@ -7,7 +7,7 @@ interface Props {
 
 export function Title({ className, children }: Props) {
   return (
-    <h1 className={`text-white font-bold ${className}`}>
+    <h1 className={`title text-[#ff003b] ${className}`}>
       {children}
     </h1>
   );
@@ -23,13 +23,13 @@ export function Subtitle({ className, children }: Props) {
 
 export function Text({ className, children }: Props) {
   return (
-    <p className={`text-white ${className}`}>
+    <p className={`text-gray-500 text-1xl ${className}`}>
       {children}
     </p>
   );
 }
 
-/* 
+/*
 
 const Carousel = ({ images }: { images: ImageData[] }) => {
   return (
