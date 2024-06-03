@@ -6,6 +6,7 @@ import { Carousel } from "@/app/components/UI/Carousel";
 import { Title, Subtitle, Text } from "@/app/components/UI/Text";
 import { Button, RedButton } from "./components/UI/Button";
 import { FaLanguage, FaTerminal, FaCode, FaRobot } from 'react-icons/fa';
+import { useEffect, useState } from "react";
 
 const features = [
   { icon: FaLanguage, title: 'Multi language', description: 'More information about Feature 1.' },
@@ -22,14 +23,33 @@ interface ImageData {
 }
 
 export default function Home() {
-  alert("The website is under development, currently there is only the download option.");
+  const [alertVisible, setAlertVisible] = useState(false);
 
+  useEffect(() => {
+    setAlertVisible(true);
+  }, []);
+
+  const hideAlert = () => {
+    setAlertVisible(false);
+  };
+
+
+  const Alert = ({ message, onClose }: { message: string, onClose: () => void }) => {
+    return (
+      <div style={{ border: '1px solid red', padding: '10px', position: 'fixed', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', zIndex: 1000 }}>
+        {message}
+        <button onClick={onClose} style={{ marginLeft: '10px' }}>Cerrar</button>
+      </div>
+    );
+  };
   return (
     <>
+
+      {alertVisible && <Alert message="The website is under development, currently there is only the download option." onClose={hideAlert} />}
       <main className="flex flex-col justify-center items-center text-center gap-6 min-h-screen bg-black">
         <Subtitle className="text-gray-300 mb-4 w-4/5">MCPTool v1.0.0 has been released! Check it out!</Subtitle>
-        <Title className="text-gray-300 w-4/5 text-4xl">Pentesting Tool For Minecraft</Title>
-        <Text className="w-4/5">The ideal program for developers interested in Minecraft-oriented cybersecurity</Text>
+        <Title className="text-gray-300 w-4/5 text-4xl lg:text-6xl">Pentesting Tool For Minecraft</Title>
+        <Text className="w-4/5 lg:text-2xl">The ideal program for developers interested in Minecraft-oriented cybersecurity</Text>
         <section className="flex flex-row items-center gap-6 mt-6">
           <RedButton url="https://github.com/wrrulos/MCPTool/releases/latest/download/MCPTool-win64.msi">Download</RedButton>
           <Button url="https://github.com/wrrulos/MCPTool/">Github</Button>
