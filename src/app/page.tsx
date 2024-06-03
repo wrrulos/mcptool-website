@@ -36,10 +36,9 @@ export default function Home() {
 
   const Alert = ({ message, onClose }: { message: string, onClose: () => void }) => {
     return (
-      <div style={{ border: '1px solid red', padding: '10px', position: 'fixed', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', zIndex: 1000 }}>
+      <a onClick={onClose} style={{ border: '1px solid red', padding: '10px', position: 'fixed', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', zIndex: 1000 }}>
         {message}
-        <button onClick={onClose} style={{ marginLeft: '10px' }}>Cerrar</button>
-      </div>
+      </a>
     );
   };
   return (
